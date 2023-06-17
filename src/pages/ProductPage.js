@@ -11,7 +11,7 @@ const ProductPage = () => {
   const { id } = useParams();
 
   useEffect(() => async()=>{
-    const item =await axios.get('http://localhost:8000/products/'+id);
+    const item =await axios.get('https://summerkings.onrender.com/products/'+id);
     console.log(item.data)
     setProduct(item.data);
   }, [id]);
