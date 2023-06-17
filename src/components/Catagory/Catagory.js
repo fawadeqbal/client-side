@@ -3,8 +3,7 @@ import React from 'react';
 const Catagory = ({ item, setCatagory }) => {
   const handleClick = () => {
     let s=item.title.charAt(0).toLowerCase() + item.title.slice(1)
-    setCatagory(s);
-    console.log(item.title);
+      setCatagory(s) 
   };
 
   const style = {
