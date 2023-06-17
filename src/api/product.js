@@ -18,9 +18,18 @@ const fetchFilteredProducts = async (category) => {
     // Handle error
   }
 };
+const getProductById= async (id)=>{
+  try{
+    const item =await axios.get('https://summerkings.onrender.com/products/'+id);
+    return item.data;
+  }catch(e){
+    console.log(e)
+  }
+  
+}
 
 
-export { fetchFilteredProducts,fetchProducts };
+export { fetchFilteredProducts,fetchProducts,getProductById };
 
 
 

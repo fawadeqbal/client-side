@@ -2,7 +2,7 @@ import { useParams } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
 import { StoreContext } from "../context/StoreContext";
 import "react-toastify/dist/ReactToastify.css";
-import axios from "axios";
+import { getProductById } from "../api/product";
 
 const ProductPage = () => {
   const { addToCart, addToWishList } = useContext(StoreContext);
@@ -11,9 +11,12 @@ const ProductPage = () => {
   const { id } = useParams();
 
   useEffect(() => async()=>{
-    const item =await axios.get('https://summerkings.onrender.com/products/'+id);
-    console.log(item.data)
-    setProduct(item.data);
+    const fetchData = async () => {
+      const data = await getProductById(id);
+      console.log(data);
+      setProduct(data);
+    };
+    fetchData();
   }, [id]);
 
   if (!product) {
