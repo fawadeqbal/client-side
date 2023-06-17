@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.btn {
+    @apply text-white bg-[#8a4af3] rounded-md p-3 hover:scale-[1.1] ease-in duration-100 cursor-pointer hover:bg-blue-500
+}
+
+@keyframes slide {
+    0% {
+      transform: translateX(350%);
+    }
+    100% {
+      transform: translateX(-350%);
+    }
+  }
+  
+  .slide-in-text {
+    animation: slide 20s linear infinite;
+  }
+  
+  
+  
