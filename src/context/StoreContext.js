@@ -5,24 +5,9 @@ const StoreContext = createContext();
 
 const StoreProvider = ({ children }) => {
 
-  const [products, setProducts] = useState([]);
   const [cart, setCart] = useState([]);
   const [total, setTotal] = useState(0);
   const [wishList, setWishList] = useState([]);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const products = await fetchProducts();
-        setProducts(products);
-        console.log(products)
-      } catch (error) {
-        console.error(error);
-      }
-    };
-
-    fetchData();
-  }, []);
 
   const addToWishList = (product) => {
     const existingItemIndex = wishList.findIndex(
@@ -85,7 +70,6 @@ const StoreProvider = ({ children }) => {
   };
 
   const store = {
-    products,
     cart,
     total,
     wishList,

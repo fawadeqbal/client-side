@@ -53,7 +53,7 @@ const Cart = () => {
             {cart.map((item) => (
               <div
                 className="mb-4 mr-4 flex h-auto items-center flex-wrap border-[1.5px] ease-in duration-100  p-5 rounded-lg"
-                key={item.id}
+                key={item._id}
               >
                 <div className="product flex pl-5 self-start">
                   <img
