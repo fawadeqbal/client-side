@@ -26,7 +26,7 @@ const StoreProvider = ({ children }) => {
 
   const addToWishList = (product) => {
     const existingItemIndex = wishList.findIndex(
-      (item) => item.id === product.id
+      (item) => item._id === product._id
     );
     if (existingItemIndex >= 0) {
       console.log("Already Added");
@@ -37,13 +37,13 @@ const StoreProvider = ({ children }) => {
 
   const removeItemWishList = (item) => {
     const updatedWishList = wishList.filter(
-      (product) => product.id !== item.id
+      (product) => product._id !== item._id
     );
     setWishList(updatedWishList);
   };
 
   const addToCart = (product) => {
-    const existingItemIndex = cart.findIndex((item) => item.id === product.id);
+    const existingItemIndex = cart.findIndex((item) => item._id === product._id);
     if (existingItemIndex >= 0) {
     } else {
       setCart([...cart, { ...product, quantity: 1 }]);
@@ -53,7 +53,7 @@ const StoreProvider = ({ children }) => {
 
   const incrQuan = (item) => {
     const updatedCart = cart.map((product) =>
-      product.id === item.id
+      product._id === item._id
         ? { ...product, quantity: product.quantity + 1 }
         : product
     );
@@ -64,7 +64,7 @@ const StoreProvider = ({ children }) => {
   const decrQuan = (item) => {
     if (item.quantity > 1) {
       const updatedCart = cart.map((product) =>
-        product.id === item.id && product.quantity > 0
+        product._id === item._id && product.quantity > 0
           ? { ...product, quantity: product.quantity - 1 }
           : product
       );
@@ -74,7 +74,7 @@ const StoreProvider = ({ children }) => {
   };
 
   const removeItem = (item) => {
-    const updatedCart = cart.filter((product) => product.id !== item.id);
+    const updatedCart = cart.filter((product) => product._id !== item._id);
     setCart(updatedCart);
     setTotal(total - item.price * item.quantity);
   };
