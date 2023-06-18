@@ -10,7 +10,7 @@ const ProductPage = () => {
   const [product, setProduct] = useState({});
   const { id } = useParams();
 
-  useEffect(() => async()=>{
+  useEffect(() =>{
     const fetchData = async () => {
       const data = await getProductById(id);
       console.log(data);
@@ -37,7 +37,7 @@ const ProductPage = () => {
             <img
               alt="ecommerce"
               class="lg:w-1/2  h-[500px] -mt-[60px]  object-center rounded"
-              src={product.image}
+              src={'https://summerkings.onrender.com/'+product.image}
             />
           </div>
 
