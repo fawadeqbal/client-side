@@ -58,7 +58,7 @@ const Cart = () => {
                 <div className="product flex pl-5 self-start">
                   <img
                     className="product_img w-[7rem]"
-                    src={item.image}
+                    src={'https://summerkings.onrender.com/'+item.image}
                     alt="product_img"
                   />
 
