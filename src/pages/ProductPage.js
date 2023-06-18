@@ -17,7 +17,7 @@ const ProductPage = () => {
       setProduct(data);
     };
     fetchData();
-  }, [id]);
+  }, []);
 
   if (!product) {
     return null;

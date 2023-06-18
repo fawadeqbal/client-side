@@ -20,7 +20,8 @@ const fetchFilteredProducts = async (category) => {
 };
 const getProductById= async (id)=>{
   try{
-    const item =await axios.get('https://summerkings.onrender.com/products/'+id);
+    const item =await axios.get(URL+'/products/'+id);
+    console.log(item)
     return item.data;
   }catch(e){
     console.log(e)
