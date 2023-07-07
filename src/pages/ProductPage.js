@@ -37,7 +37,7 @@ const ProductPage = () => {
             <img
               alt="ecommerce"
               class="lg:w-1/2  h-[500px] -mt-[60px]  object-center rounded"
-              src={'https://summerkings.onrender.com/'+product.image}
+              src={'http://localhost:8000'+product.image}
             />
           </div>
 

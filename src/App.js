@@ -16,6 +16,9 @@ import FAQsPage from './pages/FAQsPage'
 import OurTeam from "./pages/OurTeam";
 import AboutUs from './pages/AboutUs'
 import StoreLocator from "./pages/StoreLocator";
+import AdminDashboard from "./pages/Admin/AdminDashboard";
+import AddProduct from "./pages/Seller/components/AddProduct";
+import Seller from "./pages/Seller/Seller";
 
 
 function App() {
@@ -43,8 +46,9 @@ function App() {
         <Route path='/team' element={<OurTeam/>}/>
         <Route path='/about' element={<AboutUs/>}/>
         <Route path='/location' element={<StoreLocator/>}/>
+        <Route path='/admindashboard' element={<AdminDashboard/>}/>
+        <Route path='/seller' element={<Seller/>}/>
       </Routes>
-
       <Footer title={title} description={description} />
     </>
   );

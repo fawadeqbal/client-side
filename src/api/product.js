@@ -1,5 +1,18 @@
 import axios from "axios";
-const URL="https://summerkings.onrender.com"
+
+const URL='http://localhost:8000'
+
+
+export const addProduct = async (productData) => {
+
+  try {
+    const response = await axios.post(`${URL}/products`, productData);
+    console.log(response.data);
+  } catch (error) {
+    console.error(error);
+    throw new Error('Failed to add product');
+  }
+};
 const fetchProducts = async () => {
   try {
     const response = await axios.get(`${URL}/products`);
@@ -28,6 +41,7 @@ const getProductById= async (id)=>{
   }
   
 }
+
 
 
 export { fetchFilteredProducts,fetchProducts,getProductById };
