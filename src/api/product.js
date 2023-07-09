@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const URL='http://localhost:8000'
+const URL='https://summerkings.onrender.com'
 
 
 export const addProduct = async (productData) => {

@@ -3,7 +3,7 @@ import { useContext, useEffect, useState } from "react";
 import { StoreContext } from "../context/StoreContext";
 import "react-toastify/dist/ReactToastify.css";
 import { getProductById } from "../api/product";
-const url='http://localhost:8000';
+const url='https://summerkings.onrender.com';
 
 const ProductPage = () => {
   const { addToCart, addToWishList } = useContext(StoreContext);
