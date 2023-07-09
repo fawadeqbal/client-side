@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { getUser,deleteUser } from '../../api/user';
-import ViewUser from './components/ViewUser';
 import AddUser from './components/AddUser';
 import UpdateUser from './components/UpdateUser';
 import { StoreContext } from '../../context/StoreContext';
@@ -9,27 +8,27 @@ import { StoreContext } from '../../context/StoreContext';
 const AdminDashboard = () => {
   const {currentUser}=useContext(StoreContext)
   const [users, setUsers] = useState([]);
-    const [currentPage, setCurrentPage] = useState('view');
-  
+    const [currentPage, setCurrentPage] = useState('manage');
+
 
   useEffect(() => {
-    // Fetch user data from an API or database
-    const fetchUsers = async () => {
-      try {
-        const response = await getUser();
-        const data = await response.data;
-        setUsers(data);
-      } catch (error) {
-        console.error('Error fetching user data:', error);
-      }
-    };
+   
 
     fetchUsers();
-  }, []);
+  }, [currentPage]);
+  const fetchUsers = async () => {
+    try {
+      const response = await getUser(currentUser.accessToken);
+      const data = await response.data;
+      setUsers(data);
+    } catch (error) {
+      console.error('Error fetching user data:', error);
+    }
+  };
 
   const handleRemoveUser = async (userId) => {
     try {
-      await deleteUser(userId);
+      await deleteUser(userId,currentUser.accessToken);
       setUsers((prevUsers) => prevUsers.filter((user) => user._id !== userId));
     } catch (error) {
       console.error('Error removing user:', error);
@@ -40,10 +39,8 @@ const AdminDashboard = () => {
     switch (currentPage) {
       case 'add':
         return <AddUser />;
-      case 'view':
-        return <ViewUser users={users} handleRemoveUser={handleRemoveUser} />;
-      case 'update':
-        return <UpdateUser />;
+      case 'manage':
+        return <UpdateUser users={users} handleRemoveUser={handleRemoveUser} fetchUsers={fetchUsers}/>;
       default:
         return null;
     }
@@ -88,11 +85,12 @@ const Navbar = ({ setCurrentPage }) => {
         <li>
           <button
             className="text-white hover:text-gray-300"
-            onClick={() => setCurrentPage('view')}
+            onClick={() => setCurrentPage('manage')}
           >
-            View Users
+            Manage Users
           </button>
         </li>
+        
       </ul>
     </nav>
   );

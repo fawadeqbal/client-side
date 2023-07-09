@@ -12,6 +12,7 @@ const Login = () => {
   let user;
   function setUser(){
     setCurrentUser(user);
+    console.log(user)
   }
   const handleSignIn = async(e) => {
     e.preventDefault();
@@ -19,8 +20,8 @@ const Login = () => {
     const password = passwordRef.current.value;
     user=await login({username,password})
     
-   
     if(user.role==='admin'){
+      console.log(user)
       setUser()
       nav('/admindashboard')
     }else if(user.role==='seller'){
