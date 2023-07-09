@@ -6,7 +6,7 @@ import {
   Clear
 } from "@material-ui/icons";
 import { ShoppingCartOutlined } from "@material-ui/icons";
-
+const url='https://summerkings.onrender.com/'
 const Cart = () => {
   const navigate = useNavigate();
   const { cart, total, incrQuan, decrQuan, removeItem, clearCart } = useContext(StoreContext);
@@ -58,7 +58,7 @@ const Cart = () => {
                 <div className="product flex pl-5 self-start">
                   <img
                     className="product_img w-[7rem]"
-                    src={'https://summerkings.onrender.com/'+item.image}
+                    src={url+item.image}
                     alt="product_img"
                   />
 

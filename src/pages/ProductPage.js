@@ -3,6 +3,7 @@ import { useContext, useEffect, useState } from "react";
 import { StoreContext } from "../context/StoreContext";
 import "react-toastify/dist/ReactToastify.css";
 import { getProductById } from "../api/product";
+const url='http://localhost:8000';
 
 const ProductPage = () => {
   const { addToCart, addToWishList } = useContext(StoreContext);
@@ -37,7 +38,7 @@ const ProductPage = () => {
             <img
               alt="ecommerce"
               class="lg:w-1/2  h-[500px] -mt-[60px]  object-center rounded"
-              src={'http://localhost:8000'+product.image}
+              src={url+'/'+product.image}
             />
           </div>
 

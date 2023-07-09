@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import AddProduct from './components/AddProduct'
+import ManageProducts from './components/ManageProducts'
 
 
 const Seller = () => {
@@ -9,7 +10,9 @@ const Seller = () => {
     const render=()=>{
         if(currentPage==='view'){
             return(
-                <>Hello</>)
+                <>
+                <ManageProducts/>
+                </>)
         }else if(currentPage==='add'){
             return(<>
                 <AddProduct/>

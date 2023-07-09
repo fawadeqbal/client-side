@@ -1,6 +1,6 @@
 import React,{useState} from "react";
 import { Link } from "react-router-dom";
-import axios from 'axios'
+import {addUser} from '../api/user'
 
 const Register = () => {
   const [username, setUsername] = useState("");
@@ -10,11 +10,13 @@ const Register = () => {
   const handleRegister = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:8000/user", {
+      const user={
         username,
         email,
-        password
-      });
+        password,
+        role:'client'
+      }
+      const response = await addUser(user );
 
       console.log(response.data); // Handle the response from the server
     } catch (error) {

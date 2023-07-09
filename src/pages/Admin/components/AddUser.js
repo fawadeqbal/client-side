@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import axios from 'axios';
+import { addUser } from '../../../api/user';
 // Assuming you have the User model defined in a separate file
 
 const AddUser = () => {
@@ -11,11 +11,13 @@ const AddUser = () => {
   const handleSubmit = async(e) => {
     e.preventDefault();
     try {
-        const response = await axios.post("http://localhost:8000/user", {
-          username,
-          email,
-          password
-        });
+      const user={
+        username,
+        email,
+        password,
+        role
+      }
+        const response = await addUser( user);
   
         console.log(response.data);
     }catch(e){

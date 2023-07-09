@@ -14,3 +14,8 @@ export const getUser = async()=>{
       throw new Error("Failed to delete user");
     }
   };
+
+  export const addUser = async(user)=>{
+    return await axios.post(URL+'/user',user)
+  }
+  

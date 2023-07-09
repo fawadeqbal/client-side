@@ -1,5 +1,5 @@
-import React, { createContext, useState, useEffect } from "react";
-import { fetchProducts } from "../api/product";
+import React, { createContext, useState } from "react";
+
 
 const StoreContext = createContext();
 

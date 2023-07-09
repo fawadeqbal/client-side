@@ -57,6 +57,16 @@ const Navbar = () => {
             </Badge>
             </Link>
           </div>
+          <div className={styles.button}>
+            <Link to='/admindashboard'>
+              Admin
+            </Link>
+          </div>
+          <div className={styles.button}>
+            <Link to='/seller'>
+              Seller
+            </Link>
+          </div>
         </div>
       </div>
     </div>
