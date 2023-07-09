@@ -1,15 +1,35 @@
-import React, { useRef,useState } from 'react';
+import React, { useContext, useRef,useState } from 'react';
+import {useNavigate} from 'react-router-dom'
+import { login } from '../api/user';
+import { StoreContext } from '../context/StoreContext';
 
 const Login = () => {
+  const nav=useNavigate()
+  const {setCurrentUser}=useContext(StoreContext)
+  
   const usernameRef = useRef(null);
   const passwordRef = useRef(null);
-  const [userName, setUserName] = useState("");
-
-  const handleSignIn = (e) => {
+  let user;
+  function setUser(){
+    setCurrentUser(user);
+  }
+  const handleSignIn = async(e) => {
     e.preventDefault();
     const username = usernameRef.current.value;
     const password = passwordRef.current.value;
-    // Perform login logic using username and password
+    user=await login({username,password})
+    
+   
+    if(user.role==='admin'){
+      setUser()
+      nav('/admindashboard')
+    }else if(user.role==='seller'){
+      setUser()
+      nav('/seller')
+    }else if(user.role==='client'){
+      setUser()
+      nav('/')
+    }
   };
 
   return (

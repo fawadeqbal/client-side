@@ -18,7 +18,6 @@ const AddUser = () => {
         role
       }
         const response = await addUser( user);
-  
         console.log(response.data);
     }catch(e){
 
@@ -83,7 +82,7 @@ const AddUser = () => {
             <option value="">Select Role</option>
             <option value="admin">Admin</option>
             <option value="seller">Seller</option>
-            <option value="customer">Customer Services</option>
+            <option value="client">Customer Services</option>
           </select>
         </div>
         <div>

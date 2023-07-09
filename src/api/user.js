@@ -1,5 +1,5 @@
 import axios from "axios";
-const URL="https://summerkings.onrender.com"
+const URL="http://localhost:8000"
 
 export const getUser = async()=>{
     return await axios.get(URL+'/user')
@@ -17,5 +17,9 @@ export const getUser = async()=>{
 
   export const addUser = async(user)=>{
     return await axios.post(URL+'/user',user)
+  }
+  export const login = async(user)=>{
+    const response =await axios.post(URL+'/user/login',user)
+    return response.data
   }
   

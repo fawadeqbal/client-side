@@ -4,10 +4,12 @@ import React, { createContext, useState } from "react";
 const StoreContext = createContext();
 
 const StoreProvider = ({ children }) => {
-
+  const [currentUser,setCurrentUser]=useState({});
   const [cart, setCart] = useState([]);
   const [total, setTotal] = useState(0);
   const [wishList, setWishList] = useState([]);
+
+  
 
   const addToWishList = (product) => {
     const existingItemIndex = wishList.findIndex(
@@ -70,6 +72,8 @@ const StoreProvider = ({ children }) => {
   };
 
   const store = {
+    currentUser,
+    setCurrentUser,
     cart,
     total,
     wishList,

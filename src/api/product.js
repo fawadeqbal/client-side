@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const URL='https://summerkings.onrender.com'
+const URL='http://localhost:8000'
 
 
 export const addProduct = async (productData) => {
@@ -41,10 +41,18 @@ const getProductById= async (id)=>{
   }
   
 }
+const deleteProduct= async (id)=>{
+  try{
+    const item =await axios.delete(URL+'/products/'+id);
+    return item.data;
+  }catch(e){
+    console.log(e)
+  }
+  
+}
 
 
-
-export { fetchFilteredProducts,fetchProducts,getProductById };
+export { fetchFilteredProducts,fetchProducts,getProductById,deleteProduct };
 
 
 

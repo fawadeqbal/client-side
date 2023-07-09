@@ -6,7 +6,7 @@ import {
   Clear
 } from "@material-ui/icons";
 import { ShoppingCartOutlined } from "@material-ui/icons";
-const url='https://summerkings.onrender.com/'
+const url='http://localhost:8000/'
 const Cart = () => {
   const navigate = useNavigate();
   const { cart, total, incrQuan, decrQuan, removeItem, clearCart } = useContext(StoreContext);

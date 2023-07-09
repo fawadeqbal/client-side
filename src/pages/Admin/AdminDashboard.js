@@ -1,13 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { getUser,deleteUser } from '../../api/user';
 import ViewUser from './components/ViewUser';
 import AddUser from './components/AddUser';
 import UpdateUser from './components/UpdateUser';
+import { StoreContext } from '../../context/StoreContext';
 
 
 const AdminDashboard = () => {
+  const {currentUser}=useContext(StoreContext)
   const [users, setUsers] = useState([]);
-  const [currentPage, setCurrentPage] = useState('view');
+    const [currentPage, setCurrentPage] = useState('view');
+  
 
   useEffect(() => {
     // Fetch user data from an API or database
@@ -45,6 +48,8 @@ const AdminDashboard = () => {
         return null;
     }
   };
+  if(currentUser.role==='admin'){
+    
 
   return (
     <div>
@@ -58,11 +63,19 @@ const AdminDashboard = () => {
      
     </div>
   );
+  }else{
+    return(
+      <>
+      You do not have permission to view this page
+      </>
+    )
+  }
+  
 };
 
 const Navbar = ({ setCurrentPage }) => {
   return (
-    <nav className="bg-gray-800 py-4 px-6 mb-6">
+    <nav className="bg-[#8a4af3] py-4 px-6 mb-6">
       <ul className="flex space-x-4">
         <li>
           <button

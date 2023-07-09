@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { fetchProducts} from '../../../api/product';
+import { fetchProducts,deleteProduct} from '../../../api/product';
 
 const ManageProducts = () => {
   const [products, setProducts] = useState([]);
@@ -14,8 +14,8 @@ const ManageProducts = () => {
   };
 
   const handleDelete = async (productId) => {
-    // await deleteProduct(productId);
-    // fetchProducts();
+    await deleteProduct(productId);
+    fetchProducts();
   };
 
   const handleUpdate = async (productId, updatedProduct) => {
@@ -51,7 +51,7 @@ const ManageProducts = () => {
                   </button>
                   <button
                     className="btn btn-red"
-                    onClick={() => handleDelete(product.id)}
+                    onClick={() => handleDelete(product._id)}
                   >
                     Delete
                   </button>
